@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :goals
+  resources :goals do
+    resources :tasks
+  end
   get '/homes', to: 'homes#index'
   devise_for :users
 

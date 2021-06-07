@@ -1,0 +1,11 @@
+<% @goal.tasks.each do |task| %>
+  <p>
+    <strong>Item:</strong>
+    <%= task.item %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= task.description %>
+  </p>
+<% end %>
