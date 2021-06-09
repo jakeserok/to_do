@@ -2,50 +2,37 @@
 
 <h1>Goals</h1>
 <div class="container">
-  <div class="card container">
+  <div class="card">
     <% @goals.each do |goal| %>
-    <table>
-      <thead>
-        <tr>
-          <th>Name of Goal</th>
-          <th>User</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-        <tbody>
+    <div class="card-header">
+      <table>
+        <thead>
           <tr>
-            <td><%= goal.title %></td>
-            <td><%= goal.user_id %></td>
+            <th>Name of Goal</th>
           </tr>
-      </tbody>
-    </table>
-    <div>
-      <%= link_to 'Show', goal, class: "btn btn-info", style: "color:black;" %>
-      <%= link_to 'Edit', edit_goal_path(goal) , class: "btn btn-info" %>
-      <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-info", style: "color:black;"  %>
+        </thead>
+          <tbody>
+            <tr>
+              <td><%= goal.title %></td>
+            </tr>
+        </tbody>
+      </table>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Item:</th>
-          <th>Desription:</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+    <div class="container">
       <% goal.tasks.each do |t| %>
-      <tbody>
-        <tr colspan="3">
-          <td><%= t.item %></td>
-          <td><%= t.description %></td>
-        </tr>
-        <br>
-      </tbody>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><%= t.item %></li>
+          <li class="list-group-item"><%= t.description %></li>
+        </ul>
       <% end %>
-    </table>
+      <%= link_to 'Show Goal', goal, class: "btn btn-info", style: "color:black;" %>
+      <%= link_to 'Edit Goal', edit_goal_path(goal) , class: "btn btn-info" %>
+      <%= link_to 'Destroy Goal', goal, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-info", style: "color:black;"  %>
+    </div>
   <% end %>
   </div>
 </div>
 
 <br>
 
-<%= link_to 'New Goal', new_goal_path %>
+<%= link_to 'New Goal', new_goal_path, class: "btn btn-primary", style: "color:black;" %>
