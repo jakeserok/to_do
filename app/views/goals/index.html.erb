@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Goals</h1>
 <div class="container">
   <div class="card">
@@ -21,9 +19,12 @@
     <div class="container">
       <% goal.tasks.each do |t| %>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= t.item %></li>
-          <li class="list-group-item"><%= t.description %></li>
+          <li class="list-group-item">
+            <%= t.item %><br>
+            <%= t.description %>
+          </li>
         </ul>
+        <hr>
       <% end %>
       <%= link_to 'Show Goal', goal, class: "btn btn-info", style: "color:black;" %>
       <%= link_to 'Edit Goal', edit_goal_path(goal) , class: "btn btn-info" %>

@@ -13,8 +13,11 @@
   <body>
     <%= render 'nav' %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice] %>
+        <p id="notice"><%= notice %></p>
+      <% elsif flash[:alert] %>
+        <p id="alert"><%= alert %></p>
+      <% end %>
       <%= yield %>
     </div>
   </body>

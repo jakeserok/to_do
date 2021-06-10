@@ -14,7 +14,7 @@ class TasksController < ApplicationController
   def create
     @goal = Goal.find(params[:goal_id])
     @task = @goal.tasks.create(task_params)
-    redirect_to goal_path(@goal)
+    redirect_to goal_path(@goal), notice: "Task added successfully!"
   end
 
   private
