@@ -14,3 +14,13 @@
  *= require_self
  *= require "bootstrap"
  */
+
+ body.light {
+   color: black;
+   background-color: white;
+ }
+
+ body.dark {
+   color: white;
+   background-color: #303030;
+ }
