@@ -1,3 +1,4 @@
+<% i = 0%>
 <% @goal.tasks.each do |task| %>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
@@ -5,5 +6,10 @@
       <%= task.description %>
     </li>
   </ul>  
-  <hr>
+  <% i += 1%>
+  <% unless i == @goal.tasks.count %>
+    <hr style="color:black;">
+  <% else %>
+    <br>
+  <% end %>
 <% end %>
