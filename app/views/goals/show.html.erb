@@ -1,18 +1,18 @@
-<p>
-  <strong>Title:</strong>
-  <%= @goal.title %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @goal.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
-
-<p>Tasks:</p>
-
-<%= render 'tasks/task' %>
+<br>
+<div class="container">
+  <div class="card">
+    <div class="card-header" style="background-color:#0d6efd;">
+      <strong>Title:</strong>
+      <%= @goal.title %>
+    </div>
+    <div class="container">
+      <%= render 'tasks/task' %>
+    </div>
+    <div class="card-footer" style="background-color:#0d6efd;">
+      <%= link_to 'Edit', edit_goal_path(@goal), class: "btn btn-info", style: "color:black;" %>
+      <%= link_to 'Back', goals_path, class: "btn btn-info", style: "color:black;"  %>
+    </div>
+  </div>
+</div>
 
 <%= render 'tasks/form' %>

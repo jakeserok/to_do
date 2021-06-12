@@ -2,7 +2,7 @@
 <div class="container">
   <div class="card">
     <% @goals.each do |goal| %>
-    <div class="card-header">
+    <div class="card-header" style="background-color:#0d6efd;">
       <table>
         <thead>
           <tr>
@@ -26,8 +26,10 @@
         </ul>
         <hr>
       <% end %>
+    </div>
+    <div class="card-footer" style="background-color:#0d6efd;">
       <%= link_to 'Show Goal', goal, class: "btn btn-info", style: "color:black;" %>
-      <%= link_to 'Edit Goal', edit_goal_path(goal) , class: "btn btn-info" %>
+      <%= link_to 'Edit Goal', edit_goal_path(goal) , class: "btn btn-info" , style: "color:black;" %>
       <%= link_to 'Destroy Goal', goal, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-info", style: "color:black;"  %>
     </div>
   <% end %>
