@@ -2,7 +2,7 @@
 <% @goal.tasks.each do |task| %>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
-      <%= task.item %><br>
+      <%= check_box task, :is_complete %> <%= task.item %><br>
       <%= task.description %>
     </li>
   </ul>  
