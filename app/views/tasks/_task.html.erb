@@ -1,15 +1,39 @@
 <% i = 0%>
-<% @goal.tasks.each do |task| %>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <%= check_box task, :is_complete %> <%= task.item %><br>
-      <%= task.description %>
-    </li>
-  </ul>  
-  <% i += 1%>
-  <% unless i == @goal.tasks.count %>
+<div class="incomplete_tasks" style="color:black;">
+  <strong>Incomplete Tasks</strong>
+  <% @goal.tasks.each do |task| %>
+    <% if task.is_complete == false %>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <%= form_for task, url: goal_task_path(@goal.id, task.id) do |task| %>
+          <%= task.check_box :is_complete %>
+          <%= task.submit %>
+        <% end %>  
+        <%= task.item %><br>
+        <%= task.description %>
+      </li>
+    </ul>
     <hr style="color:black;">
-  <% else %>
-    <br>
+    <% end %> 
   <% end %>
-<% end %>
+</div>
+<div class="complete_tasks" style="color:black;">
+  <strong>Completed Tasks</strong>
+  <% @goal.tasks.each do |task| %>
+    <% if task.is_complete == true %>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <%= check_box task, :is_complete %> <%= task.item %><br>
+          <%= task.description %>
+        </li>
+      </ul>  
+      <% i += 1%>
+      <% unless i == @goal.tasks.count %>
+        <hr style="color:black;">
+      <% else %>
+        <br>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<br>
