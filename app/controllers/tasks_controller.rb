@@ -27,18 +27,18 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find(params[:id])
-    if @task.update(task_params)
-      flash.notice = "Success"
+    @goal = @task.goal_id
+    respond_to do |format|
+      if @task.update(task_params)
+        format.html { redirect_to goal_path(@goal), notice: "Task was successfully updated." }
+        # format.json { render :show, status: :ok, location: @task }
+        format.js
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        # format.json { render json: @task.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
-    # respond_to do |format|
-    #   if @task.update(task_params)
-    #     format.html { redirect_to @task, notice: "Task was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @task }
-    #   else
-    #     format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @task.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   private

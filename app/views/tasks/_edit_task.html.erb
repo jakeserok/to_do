@@ -1,0 +1,4 @@
+<%= form_with model: @tasks, url: edit_goal_task_path(task.id), remote: true do |task| %>
+  <%= task.check_box :is_complete %>
+  <%= task.submit %>
+<% end %> 
