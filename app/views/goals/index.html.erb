@@ -1,7 +1,7 @@
 <h1>Goals</h1>
 <div class="container">
+  <% @goals.each do |goal| %>
   <div class="card">
-    <% @goals.each do |goal| %>
     <div class="card-header" style="background-color:#0d6efd;color:black;">
       <table>
         <thead>
@@ -38,8 +38,9 @@
       <%= link_to 'Edit Goal', edit_goal_path(goal) , class: "btn btn-info" , style: "color:black;" %>
       <%= link_to 'Destroy Goal', goal, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-info", style: "color:black;"  %>
     </div>
-  <% end %>
   </div>
+  <br>
+  <% end %>
 </div>
 
 <br>
