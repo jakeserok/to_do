@@ -27,10 +27,12 @@ class GoalsController < ApplicationController
     respond_to do |format|
       if @goal.save
         format.html { redirect_to @goal, notice: "Goal was successfully created." }
-        format.json { render :show, status: :created, location: @goal }
+        # format.json { render :show, status: :created, location: @goal }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @goal.errors, status: :unprocessable_entity }
+        # format.json { render json: @goal.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
