@@ -23,7 +23,11 @@
     <% if task.is_complete == true %>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
-          <%= check_box task, :is_complete %> <%= task.item %><br>
+          <%= form_for task, url: goal_task_path(@goal.id, task.id) do |task| %>
+            <%= task.check_box :is_complete %>
+            <%= task.submit %>
+          <% end %>  
+          <%= task.item %><br>
           <%= task.description %>
         </li>
       </ul>  
