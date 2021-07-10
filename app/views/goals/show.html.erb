@@ -1,5 +1,13 @@
 <br>
+
 <div class="container">
+  <% unless @goal.id == current_user.goals.first.id %>
+    <%= link_to 'Previous Goal', goal_path(@previous_goal), class: "btn btn-info", style: "color:black;float:left;"  %>
+  <% end%>
+  <% unless @goal.id == current_user.goals.last.id %>
+    <%= link_to 'Next Goal', goal_path(@next_goal), class: "btn btn-info", style: "color:black;float:right;" %>
+  <% end%>
+  <br><br>
   <div class="card">
     <div class="card-header" style="background-color:#0d6efd;color:black;">
       <strong>Title:</strong>

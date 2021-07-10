@@ -8,6 +8,14 @@ class GoalsController < ApplicationController
 
   # GET /goals/1 or /goals/1.json
   def show
+    @next_goal = nil
+    @previous_goal = nil
+    if @goal.id < current_user.goals.last.id
+      @next_goal = Goal.find(@goal.id + 1)
+    end
+    if @goal.id > 1
+      @previous_goal = Goal.find(@goal.id - 1)
+    end
   end
 
   # GET /goals/new
