@@ -7,8 +7,7 @@
       <li class="list-group-item">
         <%= form_for task, url: goal_task_path(@goal.id, task.id) do |task| %>
           <%= task.check_box :is_complete %>
-          <%= task.submit %>
-        <% end %>  
+        <% end %>
         <%= task.item %><br>
         <%= task.description %>
       </li>
@@ -25,7 +24,6 @@
         <li class="list-group-item">
           <%= form_for task, url: goal_task_path(@goal.id, task.id) do |task| %>
             <%= task.check_box :is_complete %>
-            <%= task.submit %>
           <% end %>  
           <%= task.item %><br>
           <%= task.description %>
