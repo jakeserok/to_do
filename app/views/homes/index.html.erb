@@ -1,1 +1,14 @@
-<h1>Welcome Home</h1>
+<h1>Welcome Home <br><strong><%= current_user.email %></strong></h1>
+
+<br>
+<% if user_signed_in?%>
+  <% t_count = 0 %>
+  <% current_user.goals.each do |g| %>
+    <% g.tasks.each do |t| %>
+      <% unless t.is_complete %>
+        <% t_count += 1 %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <p>You currently have <em><%= current_user.goals.count %></em> goals with <em><%= t_count %></em> tasks left to complete.</p>
+<% end %>
