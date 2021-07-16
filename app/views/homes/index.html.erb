@@ -1,4 +1,4 @@
-<h1>Welcome Home <br><strong><%= current_user.email %></strong></h1>
+<h1>Welcome Home <br><strong><%= user_signed_in? ? current_user.email : nil %></strong></h1>
 
 <br>
 <% if user_signed_in?%>
