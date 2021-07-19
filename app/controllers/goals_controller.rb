@@ -10,11 +10,15 @@ class GoalsController < ApplicationController
   def show
     @next_goal = nil
     @previous_goal = nil
+    @goal_ids = Goal.all.ids
+    @current_index = @goal_ids.index(@goal.id)
     if @goal.id < current_user.goals.last.id
-      @next_goal = Goal.find(@goal.id + 1)
+      @next_goal_index = @current_index + 1
+      @next_goal = @goal_ids[@next_goal_index]
     end
     if @goal.id > 1
-      @previous_goal = Goal.find(@goal.id - 1)
+      @previous_goal_index = @current_index - 1
+      @previous_goal = @goal_ids[@previous_goal_index]
     end
   end
 
