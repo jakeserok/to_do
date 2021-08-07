@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-  before_action :set_goal, only: %i[ show edit update destroy ]
+  before_action :set_goal, only: %i[show edit update destroy]
 
   # GET /goals or /goals.json
   def index
@@ -28,8 +28,7 @@ class GoalsController < ApplicationController
   end
 
   # GET /goals/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /goals or /goals.json
   def create
@@ -38,14 +37,13 @@ class GoalsController < ApplicationController
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: "Goal was successfully created." }
+        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
         # format.json { render :show, status: :created, location: @goal }
-        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         # format.json { render json: @goal.errors, status: :unprocessable_entity }
-        format.js
       end
+      format.js
     end
   end
 
@@ -53,7 +51,7 @@ class GoalsController < ApplicationController
   def update
     respond_to do |format|
       if @goal.update(goal_params)
-        format.html { redirect_to @goal, notice: "Goal was successfully updated." }
+        format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { render :show, status: :ok, location: @goal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,19 +64,20 @@ class GoalsController < ApplicationController
   def destroy
     @goal.destroy
     respond_to do |format|
-      format.html { redirect_to goals_url, notice: "Goal was successfully destroyed." }
+      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_goal
-      @goal = Goal.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def goal_params
-      params.require(:goal).permit(:title, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_goal
+    @goal = Goal.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def goal_params
+    params.require(:goal).permit(:title, :user_id)
+  end
 end

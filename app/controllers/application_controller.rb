@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   def set_theme
     if params[:theme].present?
       theme = params[:theme].to_sym
-      #session[:theme] = theme
+      # session[:theme] = theme
       cookies[:theme] = theme
-      redirect_to(request.referrer || root_path )
+      redirect_to(request.referrer || root_path)
     end
   end
 end
