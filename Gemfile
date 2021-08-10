@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'better_errors', '~> 2.9'
 
 gem 'rubocop', '~> 1.18'
+
+gem "omniauth-google-oauth2", "~> 1.0"
