@@ -30,5 +30,5 @@
 # Rails.application.config.content_security_policy_report_only = true
 
 Rails.application.config.content_security_policy do |policy|
-  policy.frame_ancestors :self, 'localhost:3000'
+  policy.frame_ancestors 'https://jakeserok.herokuapp.com'
 end
